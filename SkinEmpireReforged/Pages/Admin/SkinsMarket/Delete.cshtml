@@ -1,0 +1,40 @@
+﻿@page
+@model SkinEmpireReforged.Pages.Admin.SkinsMarket.DeleteModel
+
+
+<!--Credits:
+ * Kodet af Nuriye Erdogan
+ * Redigeret af Gülsüm Erdogan
+ -->
+<form method="post">
+    <input hidden asp-for="Skin.Id" />
+    <div class="border p-3 mt-4">
+        <div class=" row pb-2">
+            <h2 class="text-primary pl-3">Slet</h2>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Skin.SkinNavn"></label>
+        <input asp-for="@Model.Skin.SkinNavn" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Skin.Stand"></label>
+        <input asp-for="@Model.Skin.Stand" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Skin.VåbenType"></label>
+        <input asp-for="@Model.Skin.VåbenType" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Skin.Pris"></label>
+        <input asp-for="@Model.Skin.Pris" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Skin.Beskrivelse"></label>
+        <input asp-for="@Model.Skin.Beskrivelse" disabled class="form-control" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-danger" style="width:150px;">Slet</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Gå tilbage</a>
+    </div>
+</form>

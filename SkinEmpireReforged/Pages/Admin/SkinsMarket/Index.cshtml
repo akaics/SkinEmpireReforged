@@ -1,0 +1,76 @@
+﻿@page
+@model SkinEmpireReforged.Pages.Admin.SkinsMarket.IndexModel
+
+<!--Credits:
+    Index.cshtml (SkinsMarket page) kodet af Nuriye Erdogan
+-->
+<!--Bruger en if statement til at "fremvise" vores "oprettelses/ændring/slet besked, plus bruger javascript-->
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]');
+    </script>
+
+
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-12">
+            <h2 class="text-primary">Skins Market</h2>
+        </div>
+    </div>
+
+
+    <!--- Vi bruger bootstrap classes til at lave buttons (knapperne) -->
+    <div class="row">
+        <div class="col-8"></div>
+
+        <div class="col-4 text-right">
+            <a asp-page="create" class="btn btn-primary ml-auto mr-3">
+                Opret ny Skin
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Skin Navn</th>
+                <th>Stand</th>
+                <th>Våbentype</th>
+                <th>Pris</th>
+                <th>Beskrivelse</th>
+                <th></th>
+            </tr>
+        </thead>
+        <!--Her bliver listen "vist frem" aka Read metode, vha en foreach loop.-->
+        <tbody>
+            @foreach (var skin in Model.Skins)
+            {
+                <tr>
+                    <td>@skin.Id</td>
+                    <td>@skin.SkinNavn</td>
+                    <td>@skin.Stand</td>
+                    <td>@skin.VåbenType</td>
+                    <td>@skin.Pris</td>
+                    <td>@skin.Beskrivelse</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@skin.Id" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-page="Delete" asp-route-id="@skin.Id" class="btn btn-danger mx-2">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

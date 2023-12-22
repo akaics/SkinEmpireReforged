@@ -1,0 +1,40 @@
+﻿@page
+@model SkinEmpireReforged.Pages.Admin.SkinsMarket.CreateModel
+@{
+}
+<!--Credits:
+ * Kodet af Nuriye Erdogan
+ -->
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class=" row pb-2">
+            <h2 class="text-primary pl-3">Opret skin</h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.Id"></label>
+            <input asp-for="@Model.Skin.Id" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.SkinNavn"></label>
+            <input asp-for="@Model.Skin.SkinNavn" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.Stand"></label>
+            <input asp-for="@Model.Skin.Stand" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.VåbenType"></label>
+            <input asp-for="@Model.Skin.VåbenType" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.Pris"></label>
+            <input asp-for="@Model.Skin.Pris" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skin.Beskrivelse"></label>
+            <input asp-for="@Model.Skin.Beskrivelse" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Gå tilbage</a>
+    </div>
+</form>

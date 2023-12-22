@@ -1,0 +1,71 @@
+﻿@page
+
+<!--Credits:
+    Index.cshtml kodet af Nuriye Erdogan
+    CSS og redigering: Nuriye og Gülsüm Erdogan
+-->
+@model IndexModel
+@{
+    ViewData["Title"] = "SKINEMPIRE BY US";
+}
+
+<!--CSS-->
+<style>
+    .deepskyblue-text {
+        color: deepskyblue;
+    }
+
+    .orange-text {
+        color: orange; /* definerer farven vi vil bruge til 'EMPIRE' (orange) */
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h1.display-4 {
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .knife-image {
+        width: 7rem;
+        margin-left: -50px;
+        margin-top: -10px;
+    }
+
+/*Dette billede er 'rouletten' af Skins, som overlapper vores main banner. Her er style for den (CSS) */
+    .overlap-container {
+        position: relative;
+        overflow: hidden; 
+    }
+
+    .vigtigroulette-image {
+        width: 100%; 
+        height: auto; 
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+
+<!--skriver html kode for vores Overskrift (h1) -->
+
+<div class="text-center">
+    <h1 class="display-4 deepskyblue-text">
+        <strong>S K I N <span class="orange-text">E M P I R E</span></strong>
+    </h1>
+    <img class="knife-image" src="~/images/karakara.png" alt="Knife Image">
+</div>
+
+<!--html kode for de to billeder på siden: -->
+
+<div class="overlap-container">
+    <img class="vigtigroulette-image" src="~/images/vigtigroulette.png" alt="Vigtig Roulette Image">
+    <img src="~/images/banner.jpg" style="width: 100%;">
+</div>
