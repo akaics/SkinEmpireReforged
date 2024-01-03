@@ -1,20 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using SkinEmpireReforged.Model;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace SkinEmpireReforged.Data
+namespace SkinEmpireReforged
 {
-    public class TwinsDbContext : DbContext
+    public class TwinsDbContext : IdentityDbContext
     {
-   
-        // SkinEmpireReforged's TwinsDbContext
-        public TwinsDbContext(DbContextOptions<TwinsDbContext> options) : base(options)
-        {
-        }
-
         public DbSet<Bruger> Brugere { get; set; }
         public DbSet<Skin> Skin { get; set; }
         public DbSet<SkinType> SkinTypes { get; set; }
 
+        // Corrected the parameter type to DbContextOptions
+        public TwinsDbContext(DbContextOptions<TwinsDbContext> options) : base(options)
+        {
+        }
     }
 }

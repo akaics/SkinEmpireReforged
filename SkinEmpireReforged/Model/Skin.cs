@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SkinEmpireReforged;
 
-namespace SkinEmpireReforged.Model
+namespace SkinEmpireReforged
 {
         public class Skin
         {

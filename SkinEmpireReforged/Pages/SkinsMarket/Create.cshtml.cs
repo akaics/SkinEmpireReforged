@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SkinEmpireReforged.Data;
-using SkinEmpireReforged.Model; // Add this line to include the correct namespace
 
 namespace SkinEmpireReforged.Pages.Admin.SkinsMarket
 {

@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SkinEmpireReforged.Data;
-using SkinEmpireReforged.Model;
 
 /* Credits:
  * Kodet af Nuriye og Gülsüm Erdogan

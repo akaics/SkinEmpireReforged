@@ -1,5 +1,9 @@
+
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SkinEmpireReforged.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
 
 namespace SkinEmpireReforged
 {
@@ -7,7 +11,6 @@ namespace SkinEmpireReforged
     {
         public static void Main(string[] args)
         {
-
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container
@@ -17,6 +20,19 @@ namespace SkinEmpireReforged
             builder.Services.AddDbContext<TwinsDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("TwinsConnection")
             ));
+
+
+            // !!!!!NY: ADMIN ROLE
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdministratorRole",
+                     policy => policy.RequireRole("Administrator"));
+            });
+
+            //Configure Identity (MS learning)
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<TwinsDbContext>();
+       
+
 
 
             var app = builder.Build();
@@ -39,7 +55,6 @@ namespace SkinEmpireReforged
             app.MapRazorPages();
 
             app.Run();
-
         }
     }
 }
