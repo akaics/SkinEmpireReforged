@@ -7,8 +7,8 @@ namespace SkinEmpireReforged.Areas.Identity.Data
 
     public class ApplicationUser : IdentityUser<Guid>
     {
-        [PersonalData]
-        public string? Name { get; set; }
+       // [PersonalData]
+       // public string? Name { get; set; }
 
     }
 

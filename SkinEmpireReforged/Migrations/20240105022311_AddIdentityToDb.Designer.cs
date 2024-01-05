@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkinEmpireReforged.Areas.Identity.Data;
 
@@ -11,9 +12,11 @@ using SkinEmpireReforged.Areas.Identity.Data;
 namespace SkinEmpireReforged.Migrations
 {
     [DbContext(typeof(TwinsDbContext))]
-    partial class TwinsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240105022311_AddIdentityToDb")]
+    partial class AddIdentityToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
