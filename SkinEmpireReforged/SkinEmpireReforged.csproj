@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Admin\" />
+    <Compile Remove="Pages\Admin\**" />
+    <Content Remove="Pages\Admin\**" />
+    <EmbeddedResource Remove="Pages\Admin\**" />
+    <None Remove="Pages\Admin\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI;
-using SkinEmpireReforged.Areas.Identity.Data;
+using SkinEmpireReforged.Data;
 
 namespace SkinEmpireReforged
 {
@@ -26,21 +26,15 @@ namespace SkinEmpireReforged
 
             //Configure Identity (MS learning)
            
-            
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<TwinsDbContext>()
-            .AddDefaultUI()
-            .AddDefaultTokenProviders();
+   
 
-           //builder.Services.AddScoped<UserManager<ApplicationUser>, UserManager<ApplicationUser>>();
-          // builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
 
-            // !!!!!NY: ADMIN ROLE
-            builder.Services.AddAuthorization(options =>
-            {
-                options.AddPolicy("RequireAdministratorRole",
-                     policy => policy.RequireRole("Admin"));
-            });
+            //// !!!!!NY: ADMIN ROLE
+            //builder.Services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("RequireAdministratorRole",
+            //         policy => policy.RequireRole("Admin"));
+            //});
 
           
             var app = builder.Build();

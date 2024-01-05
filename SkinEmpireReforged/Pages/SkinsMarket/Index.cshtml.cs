@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SkinEmpireReforged.Areas.Identity.Data;
+using SkinEmpireReforged.Data;
 
 namespace SkinEmpireReforged.Pages.Admin.SkinsMarket
 {
-    [Authorize(Policy = "RequireAdministratorRole")]
+    //[Authorize(Policy = "RequireAdministratorRole")]
     public class IndexModel : PageModel
     {
 

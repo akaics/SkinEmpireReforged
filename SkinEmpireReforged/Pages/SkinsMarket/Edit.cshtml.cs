@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SkinEmpireReforged.Areas.Identity.Data;
+using SkinEmpireReforged.Data;
 
 /* Credits:
  * Kodet af Nuriye og Gülsüm Erdogan
