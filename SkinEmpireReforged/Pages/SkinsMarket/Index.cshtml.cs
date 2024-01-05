@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-
-
+using SkinEmpireReforged.Areas.Identity.Data;
 
 namespace SkinEmpireReforged.Pages.Admin.SkinsMarket
 {

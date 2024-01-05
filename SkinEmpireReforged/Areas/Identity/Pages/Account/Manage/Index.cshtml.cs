@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SkinEmpireReforged.Areas.Identity.Data;
 
 namespace SkinEmpireReforged.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -60,7 +61,7 @@ namespace SkinEmpireReforged.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -81,7 +82,7 @@ namespace SkinEmpireReforged.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            await LoadAsync(user);
+            await LoadAsync((ApplicationUser)user);
             return Page();
         }
 
@@ -95,7 +96,7 @@ namespace SkinEmpireReforged.Areas.Identity.Pages.Account.Manage
 
             if (!ModelState.IsValid)
             {
-                await LoadAsync(user);
+                await LoadAsync((ApplicationUser)user);
                 return Page();
             }
 

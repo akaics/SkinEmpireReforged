@@ -1,4 +1,6 @@
-﻿@inject SignInManager<IdentityUser> SignInManager
+﻿
+@using SkinEmpireReforged.Areas.Identity.Data;
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
