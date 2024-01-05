@@ -24,6 +24,8 @@ namespace SkinEmpireReforged
                 builder.Configuration.GetConnectionString("TwinsConnection")
             ));
 
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<TwinsDbContext>();
+
             //Configure Identity (MS learning)
            
    
