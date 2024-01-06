@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.ComponentModel;
 
 namespace SkinEmpireReforged.Data
 {
@@ -9,6 +10,11 @@ namespace SkinEmpireReforged.Data
     {
         // [PersonalData]
         // public string? Name { get; set; }
+
+        [PersonalData]
+        [DisplayName("Name")]
+        public string? Name { get; set; }
+
 
     }
 
