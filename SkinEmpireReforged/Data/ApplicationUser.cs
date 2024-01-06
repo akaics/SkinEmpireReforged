@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel;
 
+/*Credits:
+ * Kodet af Gülsüm og Nuriye Erdogan */
+
 namespace SkinEmpireReforged.Data
 {
 
@@ -11,9 +14,10 @@ namespace SkinEmpireReforged.Data
         // [PersonalData]
         // public string? Name { get; set; }
 
-        [PersonalData]
-        [DisplayName("Name")]
-        public string? Name { get; set; }
+        //[PersonalData]
+        //public string FirstName { get; set; }
+
+        //public string LastName { get; set; }
 
 
     }

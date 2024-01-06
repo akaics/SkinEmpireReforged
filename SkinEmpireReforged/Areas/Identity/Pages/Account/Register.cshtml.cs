@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using SkinEmpireReforged.Data;
 
+/*Credits:
+ * Scaffold Identity sat igang af Nuriye Erdogan */
 namespace SkinEmpireReforged.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel

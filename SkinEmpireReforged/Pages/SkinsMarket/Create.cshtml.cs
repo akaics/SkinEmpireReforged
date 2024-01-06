@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SkinEmpireReforged.Data;
 
+/*Credits:
+ * Kodet af Nuriye Erdogan */
 namespace SkinEmpireReforged.Pages.Admin.SkinsMarket
 {
     public class CreateModel : PageModel

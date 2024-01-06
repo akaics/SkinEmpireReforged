@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SkinEmpireReforged.Data;
 
+/*Credits:
+ * Kodet af Gülsüm Erdogan */
+
 namespace SkinEmpireReforged.Pages.Admin.SkinsMarket
 {
     public class DeleteModel : PageModel
