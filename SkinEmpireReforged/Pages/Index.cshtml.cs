@@ -14,9 +14,14 @@ namespace SkinEmpireReforged.Pages
             _logger = logger;
         }
 
+        // for at få apikey secret!!
         public void OnGet()
         {
-
+            var config = new ConfigurationBuilder()
+                .AddUserSecrets<Program>()
+                .Build();
+            string apikey = config["apikey"];
+            ViewData["apikey"] = apikey;
         }
     }
 }
