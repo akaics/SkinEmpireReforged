@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using SkinEmpireReforged.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Configuration;
 
 /*Credits:
  * Kodet af Gülsüm og Nuriye Erdogan */
@@ -36,14 +38,18 @@ namespace SkinEmpireReforged
             builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
             builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("AuthMessageSenderOptions"));
 
-            // API key  ((((user secrets!!)))
+            // API key  ((((GitHub Secrets)))
             var config = new ConfigurationBuilder()
                 .AddUserSecrets<Program>()
                 .Build();
 
             string apiKey = config["apikey"];
 
-            Console.WriteLine(apiKey);
+            // Use the API key when configuring the EmailSender
+            builder.Services.Configure<AuthMessageSenderOptions>(options =>
+            {
+                options.SendGridKey = apiKey;
+            });
 
             var app = builder.Build();
 
