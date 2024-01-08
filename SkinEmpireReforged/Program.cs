@@ -27,7 +27,8 @@ namespace SkinEmpireReforged
                 builder.Configuration.GetConnectionString("TwinsConnection")
             ));
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            // Her sættter vi SignIn RequireConfirmedAccount til FALSE, da vi ikke vil have en confirmation email. (api virkede ikke)
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<TwinsDbContext>();
 
             var app = builder.Build();
