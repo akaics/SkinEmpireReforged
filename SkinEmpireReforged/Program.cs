@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +8,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using SkinEmpireReforged.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using SkinEmpireReforged.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 /*Credits:
  * Kodet af Gülsüm og Nuriye Erdogan */
@@ -28,43 +29,35 @@ namespace SkinEmpireReforged
                 builder.Configuration.GetConnectionString("TwinsConnection")
             ));
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<TwinsDbContext>();
-
-            //Konfigurer Identity (Microsoft Learn Dokumentation)
-
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<TwinsDbContext>();
 
             builder.Services.AddTransient<IEmailSender, EmailSender>();
             builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
-
-
             builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("AuthMessageSenderOptions"));
 
+            // API key  ((((user secrets!!)))
+            var config = new ConfigurationBuilder()
+                .AddUserSecrets<Program>()
+                .Build();
 
-            //// !!!!!NY: ADMIN ROLE
-            //builder.Services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("RequireAdministratorRole",
-            //         policy => policy.RequireRole("Admin"));
-            //});
+            string apiKey = config["apikey"];
 
+            Console.WriteLine(apiKey);
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configure the HTTP request pipeline
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.MapRazorPages();
 
             app.Run();
