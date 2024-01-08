@@ -9,8 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-**appsettings.json
-SkinEmpireReforged/appsettings.json
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
