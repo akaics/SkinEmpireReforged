@@ -16,7 +16,7 @@ namespace SkinEmpireReforged.Data
         public DbSet<Skin> Skin { get; set; }
         public DbSet<SkinType> SkinTypes { get; set; }
 
-        // Corrected the parameter type to DbContextOptions
+
      
     }
 }
