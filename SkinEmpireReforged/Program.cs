@@ -6,15 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI;
 using SkinEmpireReforged.Data;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using SkinEmpireReforged.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Configuration;
 
-/*Credits:
- * Kodet af Gülsüm og Nuriye Erdogan */
 namespace SkinEmpireReforged
 {
     public class Program
@@ -33,23 +29,6 @@ namespace SkinEmpireReforged
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<TwinsDbContext>();
-
-            builder.Services.AddTransient<IEmailSender, EmailSender>();
-            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
-            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("AuthMessageSenderOptions"));
-
-            // API key  ((((GitHub Secrets)))
-            var config = new ConfigurationBuilder()
-                .AddUserSecrets<Program>()
-                .Build();
-
-            string apiKey = config["apikey"];
-
-            // Use the API key when configuring the EmailSender
-            builder.Services.Configure<AuthMessageSenderOptions>(options =>
-            {
-                options.SendGridKey = apiKey;
-            });
 
             var app = builder.Build();
 
